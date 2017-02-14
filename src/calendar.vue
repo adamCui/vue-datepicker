@@ -1,7 +1,7 @@
 <template>
     <div class='calendar'>
         <div class='input-wrapper' v-show='showInput'>
-            <i class='date-icon' :style='setIconUrl'></i>
+            <!--<i class='date-icon' :style='setIconUrl'></i>-->
             <div class='input' v-text='value' @click='togglePanel = !togglePanel'></div>
             <span class='input-clear' @click='clearValue'></span>
         </div>
@@ -90,7 +90,7 @@
             },
             iconUrl: {
                 type: String,
-                default: '../dist/imgs/calendar.svg'
+                default: ''
             },
             theme: {
                 type: String,
@@ -423,13 +423,13 @@
                 }
                 return dateList;
             },
-            setIconUrl() {
-                if(/.(?:jpeg|jpg|png|svg)/i.test(this.iconUrl)){
-                    return `background-image: url(${this.iconUrl})`;
-                }else {
-                    return '';
-                }
-            },
+            // setIconUrl() {
+            //     if(/.(?:jpeg|jpg|png|svg)/i.test(this.iconUrl)){
+            //         return `background-image: url(${this.iconUrl})`;
+            //     }else {
+            //         return '';
+            //     }
+            // },
             themePannelBg() {
                 return {
                     borderBottom: this.themeborder ? this.themeborder : `1px solid ${this.theme}`,
@@ -498,6 +498,7 @@
     header-color = #e57373
 
     .calendar
+        relative()
         ul
             padding 0
             margin 0
@@ -507,18 +508,18 @@
         .input-wrapper
             relative()
             display inline-block
-        .date-icon
+        /*.date-icon
             absolute(top 5px left 5px)
             width 20px
             height 20px
-            background url(../dist/imgs/calendar.svg)
-            background-size contain
+            background url(./imgs/calendar.png)
+            background-size contain*/
         .input
             width width
             height 30px
             padding 5px
-            padding-left 30px
             border 1px solid #ddd
+            text-align left
             box-sizing border-box
         .input-clear
             absolute(top 6px right 6px)
@@ -536,9 +537,11 @@
             &:after
                 transform rotate(-45deg)
         .pannel-wrapper
+            absolute(top 25px left 0)
             width width
             margin-top 5px
             background #fff
+            z-index 9
         .pannel-header
             relative()
             padding 3px
