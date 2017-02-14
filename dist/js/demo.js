@@ -9120,9 +9120,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Boolean,
             default: true
         },
-        iconUrl: {
+        inputWidth: {
             type: String,
-            default: ''
+            default: '259px'
         },
         theme: {
             type: String,
@@ -10567,6 +10567,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "input-wrapper"
   }, [_c('div', {
     staticClass: "input",
+    style: ({
+      width: _vm.inputWidth
+    }),
     domProps: {
       "textContent": _vm._s(_vm.value)
     },
