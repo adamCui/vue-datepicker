@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<calendar
-			:iconUrl='iconUrl'
+			:inputwidth='inputwidth'
 			:theme='theme'
 			:themepannelbg='themePannelBg'
 			:themeheadercolor='themeHeaderColor'
@@ -40,9 +40,9 @@
 				</select>
 			</div>
 			<div class='group'>
-				<label>iconUrl:</label>
-				<input type='file' @change='setIconUrl'/>
-				<button @click='clear("iconUrl")'>clear</button>
+				<label>inputwidth:</label>
+				<input type='text' v-model='inputwidth'/>
+				<button @click='clearInputwidth'>clear</button>
 			</div>
 			<div class='group'>
 				<label>theme:</label>
@@ -168,7 +168,7 @@
 			return {
 				value: '',
 				type: 'single',
-				iconUrl: '',
+				inputwidth: '',
 				theme: '#e57373',
 				themePannelBg: '#ffffff',
 				themeHeaderColor: '#ffffff',
@@ -198,15 +198,11 @@
 			changeBorderStyle(e) {
 				this.themeBorderColorStyle = e.target.innerHTML;
 			},
-			setIconUrl(e) {
-				let file = e.target.files || e.dataTransfer.files;
-				this.iconUrl = `./images/${file[0].name}`;
-			},
 			getTimeValue(value) {
 				this.value = value;
 			},
-			clearIconUrl() {
-				this.iconUrl = '';
+			clearInputwidth() {
+				this.inputwidth = '';
 			},
 			clearTheme() {
 				this.theme = '';

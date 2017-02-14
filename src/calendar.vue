@@ -88,7 +88,7 @@
                 type: Boolean,
                 default: true
             },
-            inputWidth: {
+            inputwidth: {
                 type: String,
                 default: '259px'
             },
@@ -430,6 +430,10 @@
             //         return '';
             //     }
             // },
+            inputWidth() {
+                console.log()
+                return /(?:px|%|vh|vw|vmin|vmax)/.test(this.inputwidth) ? this.inputwidth : '259px';
+            },
             themePannelBg() {
                 return {
                     borderBottom: this.themeborder ? this.themeborder : `1px solid ${this.theme}`,

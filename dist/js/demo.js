@@ -9120,7 +9120,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             type: Boolean,
             default: true
         },
-        inputWidth: {
+        inputwidth: {
             type: String,
             default: '259px'
         },
@@ -9461,6 +9461,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //         return '';
         //     }
         // },
+        inputWidth() {
+            console.log();
+            return (/(?:px|%|vh|vw|vmin|vmax)/.test(this.inputwidth) ? this.inputwidth : '259px'
+            );
+        },
         themePannelBg() {
             return {
                 borderBottom: this.themeborder ? this.themeborder : `1px solid ${this.theme}`,
@@ -9697,7 +9702,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		return {
 			value: '',
 			type: 'single',
-			iconUrl: '',
+			inputwidth: '',
 			theme: '#e57373',
 			themePannelBg: '#ffffff',
 			themeHeaderColor: '#ffffff',
@@ -9727,15 +9732,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		changeBorderStyle(e) {
 			this.themeBorderColorStyle = e.target.innerHTML;
 		},
-		setIconUrl(e) {
-			let file = e.target.files || e.dataTransfer.files;
-			this.iconUrl = `./images/${file[0].name}`;
-		},
 		getTimeValue(value) {
 			this.value = value;
 		},
-		clearIconUrl() {
-			this.iconUrl = '';
+		clearInputwidth() {
+			this.inputwidth = '';
 		},
 		clearTheme() {
 			this.theme = '';
@@ -9868,7 +9869,7 @@ module.exports = Component.exports
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('calendar', {
     attrs: {
-      "iconUrl": _vm.iconUrl,
+      "inputwidth": _vm.inputwidth,
       "theme": _vm.theme,
       "themepannelbg": _vm.themePannelBg,
       "themeheadercolor": _vm.themeHeaderColor,
@@ -9920,18 +9921,28 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('option', [_vm._v("single")]), _vm._v(" "), _c('option', [_vm._v("range")]), _vm._v(" "), _c('option', [_vm._v("time")])])]), _vm._v(" "), _c('div', {
     staticClass: "group"
-  }, [_c('label', [_vm._v("iconUrl:")]), _vm._v(" "), _c('input', {
+  }, [_c('label', [_vm._v("inputwidth:")]), _vm._v(" "), _c('input', {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: (_vm.inputwidth),
+      expression: "inputwidth"
+    }],
     attrs: {
-      "type": "file"
+      "type": "text"
+    },
+    domProps: {
+      "value": _vm._s(_vm.inputwidth)
     },
     on: {
-      "change": _vm.setIconUrl
+      "input": function($event) {
+        if ($event.target.composing) { return; }
+        _vm.inputwidth = $event.target.value
+      }
     }
   }), _vm._v(" "), _c('button', {
     on: {
-      "click": function($event) {
-        _vm.clear("iconUrl")
-      }
+      "click": _vm.clearInputwidth
     }
   }, [_vm._v("clear")])]), _vm._v(" "), _c('div', {
     staticClass: "group"
