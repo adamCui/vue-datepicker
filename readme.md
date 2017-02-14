@@ -1,8 +1,13 @@
 #vue-datepicker
-
-基于 vuejs 2.x 和 es6 可自定义主题的日期组件
+基于 vuejs 2.x 可自定义主题的日期组件
 
 [DEMO][3]
+
+##Installation
+
+```
+npm install aotu-calendar --save
+```
 
 ##Usage
 
@@ -21,6 +26,7 @@
 <caleendar theme='#800080' type='range' iconUrl='./images/icon.png'></caleendar>
 ```
 ![demo][2]
+
 ##Props
 * `type(String)`: 默认 single（选择单天），可选 range（选择多天） / time（选择单天 + 时间）
 
