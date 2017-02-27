@@ -9122,7 +9122,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         inputwidth: {
             type: String,
-            default: '259px'
+            default: ''
         },
         theme: {
             type: String,
@@ -9462,8 +9462,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //     }
         // },
         inputWidth() {
-            console.log();
-            return (/(?:px|%|vh|vw|vmin|vmax)/.test(this.inputwidth) ? this.inputwidth : '259px'
+            return (/(?:px|%|vh|vw|vmin|vmax)/.test(this.inputwidth) ? this.inputwidth : ''
             );
         },
         themePannelBg() {
