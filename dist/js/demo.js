@@ -9351,6 +9351,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     this.value = '';
             }
             this.getValue();
+            this.getStartTime();
+            this.getEndTime();
         },
         clearValue() {
             this.value = '';
@@ -9420,6 +9422,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getValue() {
             this.$emit('getValue', this.value);
+        },
+        getStartTime() {
+            console.log(`${this.startYear}-${this.startMonth + 1}-${this.startDate} ${this.startHour}:${this.startMin}`);
+            this.$emit('getStartTime', `${this.startYear}-${this.startMonth + 1}-${this.startDate} ${this.startHour}:${this.startMin}`);
+        },
+        getEndTime() {
+            console.log(`${this.endYear}-${this.endMonth + 1}-${this.endDate} ${this.endHour}:${this.endMin}`);
+            this.$emit('getEndTime', `${this.endYear}-${this.endMonth + 1}-${this.endDate} ${this.endHour}:${this.endMin}`);
         }
     },
     computed: {
@@ -9462,6 +9472,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //     }
         // },
         inputWidth() {
+            console.log(this.inputwidth);
             return (/(?:px|%|vh|vw|vmin|vmax)/.test(this.inputwidth) ? this.inputwidth : ''
             );
         },
